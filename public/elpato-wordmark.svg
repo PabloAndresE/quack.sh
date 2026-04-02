@@ -1,0 +1,10 @@
+<svg width="320" height="104" viewBox="0 0 160 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="26" cy="34" rx="17" ry="12" fill="#F5C518"/>
+  <ellipse cx="26" cy="34" rx="17" ry="12" fill="#E8B800" opacity="0.3"/>
+  <circle cx="26" cy="20" r="10" fill="#F5C518"/>
+  <path d="M34 18.5 Q42 16.5 41 21 Q40 24.5 34 21.5 Z" fill="#E8860A"/>
+  <circle cx="30.5" cy="16.5" r="2.2" fill="#1a1208"/>
+  <circle cx="31.3" cy="15.7" r="0.75" fill="white"/>
+  <text x="54" y="30" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="500" fill="#C4A020">quack</text>
+  <text x="108" y="30" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="500" fill="#2C2418">.sh</text>
+</svg>
