@@ -5,6 +5,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? "");
 
 const ALLOWED_ORIGINS = [
   "https://quack.sh",
+  "https://quack-sh.vercel.app",
   "http://localhost:3000",
 ];
 
