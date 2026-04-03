@@ -37,7 +37,7 @@ body {
   border-bottom: 1px solid var(--divider);
 }
 
-.wordmark { height: 28px; width: auto; }
+.wordmark { height: 40px; width: auto; }
 
 .status {
   display: flex;
