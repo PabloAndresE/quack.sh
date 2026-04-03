@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     title: "quack.sh",
     description: "el pato won't give you the answer — you already have it",
     siteName: "quack.sh",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "quack.sh",
+    description: "el pato won't give you the answer — you already have it",
+    images: ["/og.png"],
   },
 };
 

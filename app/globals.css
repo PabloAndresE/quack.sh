@@ -261,6 +261,15 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-24px); }
+}
+
+.empty-state.leaving {
+  animation: fadeUp 0.3s ease forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .status-dot, .typing-dot { animation: none; opacity: 1; }
   .empty-state, .messages { animation: none; }

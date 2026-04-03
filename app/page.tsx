@@ -11,10 +11,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const userScrolledRef = useRef(false);
 
   const hasEnded = messages.length >= 30;
@@ -62,9 +64,16 @@ export default function Home() {
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInput("");
+    if (textareaRef.current) textareaRef.current.style.height = "auto";
     setIsLoading(true);
 
-    if (!hasStarted) setHasStarted(true);
+    if (!hasStarted) {
+      setIsLeaving(true);
+      setTimeout(() => {
+        setHasStarted(true);
+        setIsLeaving(false);
+      }, 300);
+    }
 
     const controller = new AbortController();
     abortRef.current = controller;
@@ -180,7 +189,7 @@ export default function Home() {
         aria-live="polite"
       >
         {!hasStarted ? (
-          <div className="empty-state">
+          <div className={`empty-state ${isLeaving ? "leaving" : ""}`}>
             <div className="tagline">
               <em>el pato </em> won&apos;t give you the answer &mdash; you
               already have it
@@ -227,7 +236,15 @@ export default function Home() {
             rows={1}
             placeholder="describe what's broken..."
             value={input}
-            onChange={(e) => setInput(e.target.value.slice(0, MAX_LENGTH))}
+            ref={textareaRef}
+            onChange={(e) => {
+              setInput(e.target.value.slice(0, MAX_LENGTH));
+              const el = textareaRef.current;
+              if (el) {
+                el.style.height = "auto";
+                el.style.height = Math.min(el.scrollHeight, 120) + "px";
+              }
+            }}
             onKeyDown={handleKeyDown}
             disabled={isLoading || hasEnded || !isOnline}
           />
