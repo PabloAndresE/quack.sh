@@ -108,6 +108,79 @@ body {
   letter-spacing: 0.3px;
 }
 
+.what-is-this {
+  font-family: var(--font-jetbrains), "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: var(--muted-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 24px;
+  transition: color 0.2s;
+}
+
+.what-is-this:hover { color: var(--accent); }
+
+.inline-explainer {
+  max-width: 480px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+  margin-top: 0;
+}
+
+.inline-explainer.open {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 32px;
+}
+
+.inline-explainer p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.inline-explainer p:last-of-type { margin-bottom: 0; }
+
+.inline-explainer em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.mini-example {
+  background: var(--input-bg);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  text-align: left;
+}
+
+.mini-line {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.mini-line:last-child { margin-bottom: 0; }
+
+.mini-pato {
+  font-family: var(--font-lora), "Lora", serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.mini-you {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+}
+
 .messages {
   display: flex;
   flex-direction: column;

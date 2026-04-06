@@ -13,6 +13,7 @@ export default function Home() {
   const [hasStarted, setHasStarted] = useState(false);
   const [isLeaving, setIsLeaving] = useState(false);
   const [isOnline, setIsOnline] = useState(true);
+  const [showExplainer, setShowExplainer] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -195,6 +196,39 @@ export default function Home() {
               already have it
             </div>
             <div className="subtitle">start typing to think out loud</div>
+            <button
+              className="what-is-this"
+              onClick={() => setShowExplainer(!showExplainer)}
+            >
+              {showExplainer ? "got it" : "what is this?"}
+            </button>
+            <div className={`inline-explainer ${showExplainer ? "open" : ""}`}>
+              <p>
+                <em>rubber duck debugging</em> is a real technique — you
+                explain your problem out loud, and somewhere in the
+                explanation, you find the answer yourself.
+              </p>
+              <p>
+                el pato is a smarter duck. it listens and asks questions that
+                shift your perspective. it never gives you the answer because
+                you already have it.
+              </p>
+              <div className="mini-example">
+                <div className="mini-line mini-you">
+                  my API returns 200 but the body is empty
+                </div>
+                <div className="mini-line mini-pato">
+                  how do you know the body is empty?
+                </div>
+                <div className="mini-line mini-you">
+                  I&apos;m logging it and... wait. I&apos;m logging before the
+                  await
+                </div>
+                <div className="mini-line mini-pato">
+                  you just answered it. did you notice?
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="messages">
